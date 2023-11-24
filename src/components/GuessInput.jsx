@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const GuessInput = ({
     winnerMessage,
@@ -9,13 +9,13 @@ const GuessInput = ({
     handleSendGuess,
 }) => {
     return (
-        <div className='wordle-input'>
+        <div className="wordle-input">
             <input
                 disabled={!!winnerMessage || !isYourTurn}
                 minLength={6}
                 maxLength={6}
-                type='text'
-                placeholder='Guess...'
+                type="text"
+                placeholder="Guess..."
                 value={guessInput}
                 onChange={(e) => {
                     setGuessInput(e.target.value);

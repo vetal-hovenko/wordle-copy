@@ -1,19 +1,19 @@
 export function getColoredAnswer(word, currentTopic) {
     const coloredAnswer = word
         .trim()
-        .split('')
+        .split("")
         .map((char, index) => {
             const token = currentTopic.charAt(index);
             const isCorrect = char === token;
             const isIncorrectButPresent = !isCorrect && currentTopic.includes(char);
 
-            let spanClass = 'letter';
+            let spanClass = "letter";
             if (isCorrect) {
-                spanClass += ' correct';
+                spanClass += " correct";
             } else if (isIncorrectButPresent) {
-                spanClass += ' misplaced'; 
+                spanClass += " misplaced"; 
             } else {
-                spanClass += ' incorrect';
+                spanClass += " incorrect";
             }
 
             const uniqueKey = `${index}-${char}-${Date.now()}`;

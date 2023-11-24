@@ -1,4 +1,4 @@
-import { WS_URL } from '../lib/constants';
+import { WS_URL } from "../lib/constants";
 
 class WebSocketInstance {
     constructor() {
@@ -16,7 +16,7 @@ class WebSocketInstance {
         this.socket = new WebSocket(WS_URL);
 
         this.socket.onopen = () => {
-            console.log('WebSocket connected');
+            console.log("WebSocket connected");
         };
 
         this.socket.onmessage = (event) => {
@@ -25,64 +25,64 @@ class WebSocketInstance {
         };
 
         this.socket.onclose = () => {
-            console.log('WebSocket closed');
+            console.log("WebSocket closed");
         };
     }
 
     handleMessage(message) {
         switch (message.type) {
-            case 'incorrectGuess':
+            case "incorrectGuess":
                 if (this.onNewRound) {
                     this.onNewRound(message.guesses, message.topic);
                 }
                 break;
-            case 'gameOver':
+            case "gameOver":
                 if (this.onGameOver) {
                     this.onGameOver();
                 }
                 break;
-            case 'win':
+            case "win":
                 if (this.onResult) {
                     this.onResult(message.type, message.topic);
                 }
                 break;
-            case 'lose':
+            case "lose":
                 if (this.onResult) {
                     this.onResult(message.type, message.topic);
                 }
                 break;
-            case 'roomCreated':
+            case "roomCreated":
                 if (this.onRoomCreated) {
                     this.onRoomCreated(message.roomId);
                 }
                 break;
-            case 'joinedRoom':
+            case "joinedRoom":
                 if (this.onJoinedRoom) {
                     this.onJoinedRoom(message.roomId);
                 }
                 break;
-            case 'invalidRoom':
+            case "invalidRoom":
                 if (this.onInvalidRoom) {
                     this.onInvalidRoom();
                 }
                 break;
-            case 'restart':
+            case "restart":
                 if (this.onRestart) {
                     this.onRestart(message.roomId);
                 }
                 break;
 
-            case 'notYourTurn':
+            case "notYourTurn":
                 if (this.wrongTurn) {
                     this.wrongTurn(message.type);
                 }
                 break;
-            case 'universalRestart':
+            case "universalRestart":
                 if (this.onUniversalRestart) {
                     this.onUniversalRestart();
                 }
                 break;
-            case 'turnNotification':
+            case "turnNotification":
                 if (this.onTurnNotification) {
                     this.onTurnNotification(message.isYourTurn);
                 }
@@ -94,7 +94,7 @@ class WebSocketInstance {
 
     sendGuess(roomId, guess, guesses) {
         const message = {
-            type: 'guess',
+            type: "guess",
             roomId,
             guess,
             guesses,
@@ -104,14 +104,14 @@ class WebSocketInstance {
 
     createRoom() {
         const message = {
-            type: 'createRoom',
+            type: "createRoom",
         };
         this.send(JSON.stringify(message));
     }
 
     joinRoom(roomId) {
         const message = {
-            type: 'joinRoom',
+            type: "joinRoom",
             roomId,
         };
         this.send(JSON.stringify(message));
@@ -119,7 +119,7 @@ class WebSocketInstance {
 
     onRestart(roomId) {
         const message = {
-            type: 'restart',
+            type: "restart",
             roomId,
         };
         this.send(JSON.stringify(message));
@@ -133,7 +133,7 @@ class WebSocketInstance {
         if (this.socket && this.socket.readyState === WebSocket.OPEN) {
             this.socket.send(data);
         } else {
-            console.error('WebSocket connection not available');
+            console.error("WebSocket connection not available");
         }
     }
 }

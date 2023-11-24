@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import WebSocketExport from '../ws/WebSocket';
-import { getColoredAnswer } from '../lib/getColoredAnswer';
-import GuessInput from './GuessInput';
+import React, { useEffect, useState } from "react";
+import WebSocketExport from "../ws/WebSocket";
+import { getColoredAnswer } from "../lib/getColoredAnswer";
+import GuessInput from "./GuessInput";
 
 const Game = ({ roomId }) => {
-    const [guessInput, setGuessInput] = useState('');
+    const [guessInput, setGuessInput] = useState("");
     const [guesses, setGuesses] = useState([]);
-    const [winnerMessage, setWinnerMessage] = useState('');
+    const [winnerMessage, setWinnerMessage] = useState("");
     const [formattedGuesses, setFormattedGuesses] = useState([]);
-    const [currentTopic, setCurrentTopic] = useState('');
+    const [currentTopic, setCurrentTopic] = useState("");
     const [isYourTurn, setIsYourTurn] = useState(true);
     const [inputLength, setInputLength] = useState(0);
 
@@ -26,7 +26,7 @@ const Game = ({ roomId }) => {
         };
 
         WebSocketExport.onGameOver = () => {
-            setGuessInput('');
+            setGuessInput("");
         };
 
         WebSocketExport.onResult = (result, topic) => {
@@ -34,7 +34,7 @@ const Game = ({ roomId }) => {
         };
         
         WebSocketExport.wrongTurn = (message) => {
-            setIsYourTurn(message !== 'notYourTurn');
+            setIsYourTurn(message !== "notYourTurn");
         };
 
         WebSocketExport.onTurnNotification = (isYourTurn) => {
@@ -42,10 +42,10 @@ const Game = ({ roomId }) => {
         };
 
         WebSocketExport.onUniversalRestart = () => {
-            setWinnerMessage('');
+            setWinnerMessage("");
             setGuesses([]);
             setFormattedGuesses([]);
-            setCurrentTopic('');
+            setCurrentTopic("");
             setIsYourTurn(true);
         };
 
@@ -73,24 +73,24 @@ const Game = ({ roomId }) => {
                 updatedGuesses
             );
 
-            setGuessInput('');
+            setGuessInput("");
         }
     };
 
     const handleRestart = () => {
-        setWinnerMessage('');
+        setWinnerMessage("");
         setGuesses([]);
         setFormattedGuesses([]);
-        setCurrentTopic('');
+        setCurrentTopic("");
         WebSocketExport.onRestart(roomId);
         setInputLength(0);
     };
 
     return (
-        <div className='wordle-container'>
+        <div className="wordle-container">
             <h2>Make a guess</h2>
 
-            <div className='game-container'>
+            <div className="game-container">
                 {winnerMessage ? (
                     <h3>{winnerMessage}</h3>
                 ) : (
@@ -109,12 +109,12 @@ const Game = ({ roomId }) => {
                 {!!winnerMessage || (
                     <p>{
                         isYourTurn
-                            ? 'This is your turn'
-                            : 'Wait for your opponent to make a guess'
+                            ? "This is your turn"
+                            : "Wait for your opponent to make a guess"
                     }</p>
                 )}
 
-                <ul className='guess-list'>
+                <ul className="guess-list">
                     {formattedGuesses.map((formattedGuess, index) => {
                         const uniqueKey = `${index}-${Date.now()}`;
                         return <li key={uniqueKey}>{formattedGuess}</li>;
@@ -122,7 +122,7 @@ const Game = ({ roomId }) => {
                 </ul>
             </div>
 
-            <button onClick={handleRestart} className='restart-button'>
+            <button onClick={handleRestart} className="restart-button">
                 Restart
             </button>
         </div>

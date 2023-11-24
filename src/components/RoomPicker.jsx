@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import WebSocketExport from '../ws/WebSocket';
+import React, { useEffect, useState } from "react";
+import WebSocketExport from "../ws/WebSocket";
 
 const WebSocketHandlers = {
     handleRoomCreated: (roomId, setMessage, setIsRoomPicked) => {
@@ -11,12 +11,12 @@ const WebSocketHandlers = {
         setIsRoomPicked(true);
     },
     handleInvalidRoom: (setMessage) => {
-        setMessage('Invalid room or game already started.');
+        setMessage("Invalid room or game already started.");
     },
 };
 
 const RoomPicker = ({ roomId, setIsRoomPicked, setRoomId, isRoomPicked }) => {
-    const [message, setMessage] = useState('');
+    const [message, setMessage] = useState("");
 
     useEffect(() => {
         WebSocketExport.onRoomCreated = (roomId) => {
@@ -70,8 +70,8 @@ const RoomPicker = ({ roomId, setIsRoomPicked, setRoomId, isRoomPicked }) => {
 
             <div className="join-room-container">
                 <input
-                    type='text'
-                    placeholder='Enter Room ID'
+                    type="text"
+                    placeholder="Enter Room ID"
                     value={roomId}
                     onChange={(e) => setRoomId(e.target.value)}
                     className="room-input"
