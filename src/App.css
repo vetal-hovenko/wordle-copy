@@ -1,0 +1,222 @@
+body {
+    background-color: rgb(29, 28, 31);
+    color: #a1a1a1;;
+}
+
+.main-container {
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    padding: 10px;
+}
+
+.main-title {
+    font-size: 2.5rem;
+    color: #525151;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.main-text {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.leave-button {
+    padding: 10px 20px;
+    background-color: #ff6347b0;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.leave-button:hover {
+    background-color: #d9544fbd;
+}
+
+.room-container {
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+}
+
+.create-room-button {
+    padding: 10px 20px;
+    background-color: #008cba;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.create-room-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.join-room-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.room-input {
+    padding: 10px;
+    margin-right: 10px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.join-room-button {
+    padding: 10px 20px;
+    background-color: #008cba;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.join-room-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.message {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #008cba;
+    font-weight: bold;
+}
+
+
+.wordle-container {
+    text-align: center;
+    margin: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.game-container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.word-display {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+}
+
+input[type="text"] {
+    padding: 8px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.wordle-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 2px solid #000;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #fff;
+    max-width: 280px;
+  }
+  
+  .wordle-input input {
+    border: none;
+    outline: none;
+    font-size: 28px;    
+    padding: 5px;
+    width: 100%;
+    background: none;
+  }
+
+  .wordle-input input:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  .wordle-input button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    height: 48px;
+  }
+
+  .wordle-input button:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+  }
+
+.restart-button {
+    margin-top: 20px;
+    background-color: #3d62b1;
+    color: #fff;
+    border: none;
+}
+
+.guess-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.guess-list li {
+    font-size: 16px;
+    display: flex;
+}
+
+.letter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: white;
+    border-radius: 4px;
+    margin-right: 5px;
+    font-size: 20px;
+    font-weight: 600;
+}
+.correct {
+    background: rgba(0, 255, 98, 0.479);
+}
+.incorrect {
+    background: rgba(223, 57, 57, 0.541);
+}
+
+.misplaced {
+    background-color: rgba(255, 255, 0, 0.486);
+}
