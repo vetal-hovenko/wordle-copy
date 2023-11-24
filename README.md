@@ -9,3 +9,4 @@ The Wordle frontend is already deployed and accessible at [Wordle Frontend Deplo
 Feel free to explore the deployed version to see the application in action!
 
 If you have any questions or feedback, feel free to reach out. Happy gaming! 🎮
+
